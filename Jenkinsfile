@@ -45,7 +45,7 @@ pipeline {
 			    script {
 				    echo "Push Docker Image"
 				    withCredentials([string(credentialsId: 'austycool', variable: 'austycool')]) {
-            				sh "docker login -u austycool -p ${Apple@2020}"
+            				sh "docker login -u austycool -p ${dockerhub}"
 				    }
 				        myimage.push("${env.BUILD_ID}")
 				    
