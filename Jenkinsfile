@@ -5,9 +5,9 @@ pipeline {
 	}
 	
 	environment {
-		PROJECT_ID = 'jenkins-296812'
-                CLUSTER_NAME = 'k8s-cluster'
-                LOCATION = 'us-central1-c'
+		PROJECT_ID = 'My First Project'
+                CLUSTER_NAME = 'cluster-1'
+                LOCATION = 'us-west4-b'
                 CREDENTIALS_ID = 'kubernetes'		
 	}
 	
@@ -44,8 +44,8 @@ pipeline {
 		    steps {
 			    script {
 				    echo "Push Docker Image"
-				    withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
-            				sh "docker login -u ameintu -p ${dockerhub}"
+				    withCredentials([string(credentialsId: 'austycool', variable: 'austycool')]) {
+            				sh "docker login -u ameintu -p ${austycool}"
 				    }
 				        myimage.push("${env.BUILD_ID}")
 				    
