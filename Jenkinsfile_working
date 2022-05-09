@@ -7,7 +7,7 @@ pipeline {
 	environment {
 		dockerImage =''
 		registry = "amit873/test77" 
-	        registryCredential = 'austycool_id' 
+	        registryCredential = 'dockerhub_id' 
 			
 	}
 	
