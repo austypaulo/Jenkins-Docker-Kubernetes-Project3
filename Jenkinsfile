@@ -5,9 +5,9 @@ pipeline {
 	}
 	
 	environment {
-		PROJECT_ID = 'My First Project'
+		PROJECT_ID = 'linen-compiler-347613'
                 CLUSTER_NAME = 'cluster-1'
-                LOCATION = 'us-west4-b'
+                LOCATION = 'us-central1-c'
                 CREDENTIALS_ID = 'kubernetes'		
 	}
 	
@@ -44,7 +44,7 @@ pipeline {
 		    steps {
 			    script {
 				    echo "Push Docker Image"
-				    withCredentials([string(credentialsId: 'austycool', variable: 'austycool')]) {
+				    withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
             				sh "docker login -u austycool -p ${dockerhub}"
 				    }
 				        myimage.push("${env.BUILD_ID}")
